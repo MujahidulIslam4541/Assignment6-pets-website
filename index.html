@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paddy Website</title>
+
+  <!-- Added daisyUi cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <style>
+    .active {
+      border: 1.5px solid rgb(14, 122, 129);
+      border-radius: 120px;
+      background: rgba(14, 122, 129, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="w-11/12 mx-auto">
+    <!-- nav section -->
+    <nav>
+      <div class="navbar py-2">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-semibold">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <a class="text-xl font-bold flex gap-2 items-center"> <img src="./images/logo.webp" alt=""
+              class="w-6 h-6">Peddy</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 font-semibold">
+            <li><a>Home</a></li>
+            <li><a>Shop</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- banner section -->
+    <div class="hero ">
+      <div class="hero-content text-center">
+        <div class="">
+          <p class="mt-2">Bringing Families Together ❤️‍🔥 </p>
+          <h1 class=" text-3xl md:text-5xl font-bold mt-2"> Your Path to Adoption <br> Starts Here</h1>
+          <p class="my-2 font-semibold">Give a loving home to a pet in need! Explore our available pets and make a life-changing  <br> decision by adopting a new family member today.
+          </p>
+          <a href="#viwebutton">
+            <button class="btn bg-[#0E7A81] text-white">Get Started</button>
+          </a>
+
+          <img class="w-[500px] mx-auto" src="./images/pet.webp" alt="">
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <main class="w-11/12 mx-auto">
+    <!-- BestFriend section -->
+    <div id="viwebutton" class=" w-10/12 md:w-6/12 mx-auto text-center mt-20">
+      <h2 class="text-3xl font-bold">Adopt Your Best Friend</h2>
+      <p class="py-2">Here is an example of the "Adopt Your Best Friend" scene featuring a dog, cat, bird, and rabbit. This illustration conveys a warm, friendly atmosphere to promote pet adoption.</p>
+    </div>
+
+    <!-- API section -->
+    <!-- categoriesContainer -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8  mt-5" id="categories"></div>
+
+    <!-- short button added -->
+    <div class="flex justify-between my-4">
+      <h2 class="text-xl  font-bold">Best Deal For You</h2>
+      <button onclick="sortByPrice()" class="btn bg-[#0E7A81] text-white">Short By Price</button>
+    </div>
+
+
+    <!-- card section -->
+    <div class="grid grid-cols-5 gap-4" id="card-container py-8">
+
+
+
+      <div class=" grid gap-5 col-span-4 md:col-span-4" id="cardBody">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" id="card"> </div>
+      </div>
+
+      <div class="col-span-1  border rounded-md ">
+        <div id="shortBy" class=" flex flex-col md:grid md:grid-cols-2 gap-2 p-2">
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn hidden" onclick="my_modal_5.showModal()">open modal</button>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <i class="fa-solid fa-handshake flex justify-center text-6xl"></i>
+        <h3 class="text-lg font-bold text-center">Congrates</h3>
+        <p class="py-4 text-center">Adoption Process is start for your pet</p>
+        <h2 id="countDown" class="text-5xl text-center font-bold">3</h2>
+        <div class="modal-action">
+          <form method="dialog">
+            
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+
+
+    <!-- details modal -->
+    <button class="btn hidden" onclick="modalCustom.showModal()">open modal</button>
+    <dialog id="modalCustom" class="modal">
+      <div class="modal-box">
+        <div id="modal-content">
+
+
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            
+            <button class="btn ">Cancel</button>
+
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+
+  </main>
+
+
+
+
+
+  <!-- footer section -->
+  <footer class="footer bg-black text-white  p-10 mt-52">
+    <nav>
+      <h6 class=" flex gap-2 text-white font-bold text-2xl"><img src="./images/logo.webp" alt="" class="w-6 h-6"> Peddy
+      </h6>
+      <a class="link link-hover">Location: av. Washington 165, NY CA 54003</a>
+      <a class="link link-hover">Phone: +31 85 964 47 25</a>
+      <a class="link link-hover">Email: info@yourdomain.com</a>
+      <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+      <div class=" text-xl flex gap-4 text-blue-400">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+      </div>
+    </nav>
+    <nav class="text-gray-400">
+      <h6 class=" font-bold text-white text-xl">Useful Links</h6>
+      <a class="link link-hover">Home
+      </a>
+      <a class="link link-hover">About Us</a>
+      <a class="link link-hover">Animals</a>
+      <a class="link link-hover">Foundation</a>
+      <a class="link link-hover">Contact</a>
+    </nav>
+    <nav>
+      <h6 class="text-white font-bold text-xl mb-2">Drop a Message</h6>
+      <input class="py-2 px-4 rounded-md bg-slate-700" type="email" placeholder="Enter Your E-mail">
+      <button class=" py-2 px-4 rounded-md w-full font-bold text-white bg-[#0E7A81] border-none">Subscribe</button>
+
+    </nav>
+  </footer>
+
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
